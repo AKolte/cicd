@@ -12,7 +12,7 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "my-component-library": "git+https://github.com/AKolte/components.git"
+    // "my-component-library": "git+https://github.com/AKolte/components.git"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
