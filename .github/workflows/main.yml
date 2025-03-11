@@ -33,4 +33,9 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Deploy to S3
-        run: aws s3 sync dist/ s3://${{ secrets.AWS_S3_BUCKET }} --delete
+        run: |
+          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+            aws s3 sync dist/ s3://${{ secrets.AWS_S3_BUCKET_MAIN }} --delete
+          elif [ "${{ github.ref }}" == "refs/heads/development" ]; then
+            aws s3 sync dist/ s3://${{ secrets.AWS_S3_BUCKET_DEV }} --delete
+          fi
